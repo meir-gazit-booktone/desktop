@@ -1,0 +1,2566 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
+    <style>
+        /* #region - main.css */
+
+        /* RESET */
+
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap");
+
+        * {
+            font-family: 'Segoe UI', Arial;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            align-items: center;
+            background-image: linear-gradient(#000000, #1a2c3a);
+            color: white;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 72px;
+            padding-top: 24px;
+            vertical-align: top;
+        }
+
+        .ph_text {
+            font-weight: 900;
+        }
+
+        .navbar div {
+            display: inline-block;
+            height: 4px;
+            margin-left: 20px;
+            vertical-align: top;
+            margin: 0 10px 0 16px;
+        }
+
+        /* LINKS */
+        #login {
+            margin: -6px 10px 0 40px !important;
+            width: 88px;
+            height: 41px;
+        }
+
+        #login img {
+            width: 80px;
+            height: 40px;
+        }
+
+
+        #search {
+            background: url('../assets/images/searchbox-background.svg') no-repeat;
+            width: 262px;
+            height: 500px;
+            background-size: 130%;
+            background-position-x: -60px;
+            background-position-y: -60px;
+            margin: -5px 0 0 30px
+        }
+
+        #search input {
+            border-radius: 12px;
+            padding: 5px 10px;
+            direction: rtl;
+            text-align: right;
+            font-family: "SegoeUI-Semibold", "Segoe UI", Montserrat, Arial, Arial;
+            background-color: transparent;
+            width: 155px;
+            margin-left: 25px;
+            outline: none;
+            border: 0
+        }
+
+        #search-main {
+            width: 909px;
+            height: 60px;
+            margin: 20px 0 40px -80px;
+            text-align: center;
+            background: url('../assets/images/searchbox-main-background.png') no-repeat;
+            background-position-x: -20px;
+            background-position-y: -90px;
+        }
+
+        #search-main input {
+            border-radius: 12px;
+            padding: 5px 60px 5px 0;
+            direction: rtl;
+            text-align: right;
+            font-family: "SegoeUI-Semibold", "Segoe UI", Montserrat, Arial, Arial;
+            width: 600px;
+            font-size: 18px;
+            height: 60px;
+            margin-left: 15px;
+            background-color: transparent;
+            outline: none;
+            border: 0;
+        }
+
+
+        #search-main img {
+            position: absolute;
+            margin: 5px 0 0 -685px;
+            cursor: pointer
+        }
+
+        #contact {
+            float: right;
+        }
+
+        #services {
+            float: right;
+        }
+
+        #logo {
+            width: 202px;
+            height: 84px;
+            float: right;
+            margin: -20px 10px 0 10px !important;
+            background: url('../assets/images/logo-white-on-transparent.png') no-repeat;
+            background-position-y: -10px;
+            padding: 40px 50px 0 0;
+            text-align: right;
+        }
+
+        /* MAIN */
+        .main {
+            height: 1059px;
+            background-color: #000;
+            text-align: center;
+        }
+
+        .articles {
+            text-align: center;
+            margin: 45px auto;
+        }
+
+        /* FORM */
+        .formWrapper {
+            margin: 0px;
+            padding: 0px;
+            height: 892px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: #fff;
+            font-size: 25px;
+        }
+
+        .boxWrapper {
+            width: 50%;
+            text-align: right;
+        }
+
+        .form-send {
+            font-family: 'Segoe UI', Arial;
+            font-weight: 600;
+        }
+
+        .leftBox {
+            height: 557px;
+            width: 637px;
+            margin: 20px auto;
+        }
+
+        .rightBox {
+            height: 557px;
+            width: 637px;
+        }
+
+        .p {
+            margin: -2px;
+            font-family: 'Segoe UI', Arial;
+            font-weight: 100;
+            font-size: 25px
+        }
+
+        .form {
+            width: 636px;
+            height: 60px;
+            text-align: right;
+            font-size: 22px;
+        }
+
+        .textarea {
+            height: 113px;
+            width: 636px;
+            text-align: right;
+            font-size: 22px;
+            color: #283734;
+        }
+
+        #contactWrapper p {
+            color: #fff;
+        }
+
+        #contactWrapper input {
+            width: 636px;
+            height: 60px;
+            margin-bottom: 10px;
+            color: #283734;
+        }
+
+        #submit {
+            text-align: center;
+            color: #fff !important;
+            background-image: linear-gradient(#106db4, #0f3e63);
+            border: 0;
+            border-radius: 5px;
+        }
+
+        .contact-right-column {
+            margin-bottom: 20px;
+        }
+
+        .contact-right-column div {
+            display: inline-block;
+            height: 48px;
+            vertical-align: top;
+        }
+
+        .contact-right-column div:nth-child(1) {
+            padding: 10px;
+        }
+
+        .contact-right-column img {
+            width: 48px;
+            height: 48px;
+        }
+
+        #contact-title {
+            font-size: 48px;
+            border-bottom: 5px solid #106db4;
+            width: 286px;
+            height: 86px;
+            float: right;
+            vertical-align: top;
+            margin: -50px 0 20px 0;
+        }
+
+        .clear {
+            display: block;
+            height: 40px;
+            clear: both;
+        }
+
+        .HorizentalClear {
+            display: block;
+            width: 40px;
+        }
+
+        .itemWrapper {
+            width: 1100px;
+            margin: 0 auto 40px auto;
+            display: inline-block;
+            text-align: right;
+        }
+
+        .itemTitle {
+            color: #00508d;
+        }
+
+        .itemTitle div {
+            display: inline-block;
+            vertical-align: top;
+            direction: rtl;
+        }
+
+        .itemTitle div:nth-child(1) {
+            padding: 10px 20px 10px 10gradespx;
+        }
+
+        .itemText {
+            width: 1000px;
+            border: 1px solid #e7e9eb;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px #e7e9eb;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 8px 0 0 0;
+        }
+
+        .displayed {
+            width: 100%;
+            text-align: right;
+            padding: 10px;
+            box-shadow: 0px 2px #e7e9eb;
+        }
+
+        .hidden {
+            display: none;
+            padding: 20px 10px;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .itemTextArrow {
+            float: left;
+            margin: 2px 0 0 14px;
+        }
+
+        .fakeLink {
+            color: #4f81bd;
+            text-decoration: underline;
+            text-decoration-color: #4f81bd;
+        }
+
+        .fakeLink-black {
+            color: #000;
+            text-decoration: underline;
+            text-decoration-color: #4f81bd;
+        }
+
+        #outer-div {
+            width: 36%;
+            text-align: center;
+            margin-top: -0px;
+            position: absolute;
+            top: 25px;
+            vertical-align: top;
+        }
+
+        .star {
+            vertical-align: bottom;
+            padding: 2px 0 0 0;
+        }
+
+        .star img {
+            margin: 2px 2px 0 0;
+            width: 15.43px;
+            height: 14.71px;
+        }
+
+        #inner-div {
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        #linksContainer {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            justify-content: space-around;
+            width: 660px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        a {
+            position: relative;
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FFF;
+        }
+
+
+        a::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #FFF;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        a:hover::before {
+            transform: scaleX(1);
+        }
+
+        .linksWrapper {
+            padding-top: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* start search */
+        .searchContainer .input {
+            border: 0;
+            outline: none;
+            color: #8b7d77;
+        }
+
+        .search_wrap {
+            width: 680px;
+            margin-top: -20px;
+            margin-left: 33%;
+        }
+
+        .search_wrap .search_box {
+            position: relative;
+            width: 680px;
+            height: 60px;
+        }
+
+        .search_wrap .search_box .input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            direction: rtl;
+            width: 100%;
+            height: 100%;
+            padding: 0px 20px;
+            border-radius: 3px;
+            font-size: 18px;
+        }
+
+        .search_wrap .search_box .btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 100%;
+            background: #7690da;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .search_wrap .search_box .btn:hover {
+            background: #708bd2;
+        }
+
+        .search_wrap .search_box .btn.btn_common .fas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .search_wrap.search_wrap_4 .search_box .input {
+            padding-left: 80px;
+            border-radius: 50px;
+        }
+
+        .search_wrap.search_wrap_4 .search_box .btn {
+            left: 0px;
+            border-radius: 50%;
+        }
+
+        .magnify {
+            padding-top: 30%;
+        }
+
+        /* end search */
+
+        .flex-items:nth-child(1) {
+            display: block;
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            align-self: auto;
+            order: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .flex-items:nth-child(2) {
+            display: block;
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            align-self: auto;
+            order: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* right side */
+        .blueSquares {
+            width: 64px;
+            height: 22px;
+            border-radius: 3px;
+            color: #fff;
+            font-family: Montserrat, Medium;
+            font-size: 16px;
+        }
+
+        .textElement {
+            display: flex;
+            animation: zoomin 1s;
+            background-color: red;
+        }
+
+        .element {
+            color: #fff;
+            font-size: 24px;
+            font-family: Segoe UI, Regular;
+        }
+
+        @keyframes zoomin {
+            0% {
+                color: #000;
+                font-size: 0px;
+                font-family: Segoe UI, Regular;
+            }
+
+            100% {
+                color: #fff;
+                font-size: 24px;
+                font-family: Segoe UI, Regular;
+            }
+        }
+
+        .even-column {
+            display: flex;
+            width: 100%;
+            max-width: 326px;
+            background-color: #000;
+            font-family: Segoe UI, Regular;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .even-column>div:nth-child(1) {
+            background-color: #00508D;
+            width: 100%;
+            max-width: 42px;
+        }
+
+        .even-column>div:nth-child(2) {
+            background-color: red;
+            width: 100%;
+            max-width: 218px;
+        }
+
+        .even-column>div:nth-child(3) {
+            background-color: cyan;
+            width: 100%;
+            max-width: 10px;
+        }
+
+        .even-column>div:nth-child(4) {
+            background-color: #00508D;
+            width: 100%;
+            max-width: 56px;
+        }
+
+        /* .col {
+            padding: 3em;
+            background: rgba(0, 0, 0, 0.1);
+            border: 3px, solid, rgba(0, 0, 0, 0.2);
+        }
+
+        .rScrolContainer {
+            width: 70vw;
+            margin: 3rem;
+            padding: 2em;
+            box-shadow: 0, 0, 3em, rgba(0, 0, 0, 0.2);
+            background: #000;
+        } */
+
+        .scrolContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: normal;
+            align-items: normal;
+            align-content: normal;
+            width: 100%;
+            font-family: Segoe UI, Regular;
+            font-size: 22px;
+        }
+
+        /* end scroll */
+        .half-side {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 97px;
+        }
+
+        .container {
+            padding-top: 18px;
+        }
+
+        .kolav {
+            position: relative;
+            top: 1em;
+            right: 13em;
+        }
+
+        /**#endregion/
+
+        /* #region - numbers to laters - settings */
+
+        .wrapper {
+            display: flex;
+            justify-content: right;
+            max-width: 920px;
+            height: 100%;
+            max-height: 50px;
+            font-family: Segoe UI, Regular;
+            font-size: 20px;
+            color: #fff;
+            margin: 0px 130px 0 0;
+            padding: 10px;
+        }
+
+        .wrapper>div:nth-child(2) {
+            margin-bottom: 0px;
+            margin-left: 20px;
+            margin-right: 0px;
+            margin-top: 7px;
+        }
+
+        .letter {
+            margin: 0 0;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 18px;
+            line-height: 24px;
+            color: #eee;
+            /* letter-spacing: 0.44px; */
+        }
+
+        .letter:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            word-break: break-all;
+            background-color: #00508d;
+        }
+
+        .letter::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            word-break: break-all;
+            background-color: lime;
+            z-index: 10000000000
+        }
+
+        /*#endregion*/
+
+        /* #region - numbers to laters - animation */
+        .letter:nth-child(1):before {
+            content: "5762301498";
+            margin-top: -48px;
+            animation-name: letter1;
+            animation-duration: 3.8133333333s;
+            animation-delay: 0.12s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter1 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(2):before {
+            content: "1427963508";
+            margin-top: -48px;
+            animation-name: letter2;
+            animation-duration: 4.0533333333s;
+            animation-delay: 0.13s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter2 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(3):before {
+            content: "8905276314";
+            margin-top: -48px;
+            animation-name: letter3;
+            animation-duration: 3.8666666667s;
+            animation-delay: 0.1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter3 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(4):before {
+            content: "6943810752";
+            margin-top: -192px;
+            animation-name: letter4;
+            animation-duration: 4.0977777778s;
+            animation-delay: 0.21s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter4 {
+            from {
+                margin-top: -192px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(5):before {
+            content: "6849721053";
+            margin-top: -168px;
+            animation-name: letter5;
+            animation-duration: 3.085s;
+            animation-delay: 0.49s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter5 {
+            from {
+                margin-top: -168px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(6):before {
+            content: "4310267985";
+            margin-top: -216px;
+            animation-name: letter6;
+            animation-duration: 4.016s;
+            animation-delay: 0.24s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter6 {
+            from {
+                margin-top: -216px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(7):before {
+            content: "2754938160";
+            margin-top: -144px;
+            animation-name: letter7;
+            animation-duration: 3.9885714286s;
+            animation-delay: 0.22s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter7 {
+            from {
+                margin-top: -144px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(8):before {
+            content: "9241708653";
+            margin-top: -192px;
+            animation-name: letter8;
+            animation-duration: 4.3111111111s;
+            animation-delay: 0.25s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter8 {
+            from {
+                margin-top: -192px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(9):before {
+            content: "2471506389";
+            margin-top: -48px;
+            animation-name: letter9;
+            animation-duration: 3.0666666667s;
+            animation-delay: 0.4s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter9 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(10):before {
+            content: "3872641095";
+            margin-top: -144px;
+            animation-name: letter10;
+            animation-duration: 2.1714285714s;
+            animation-delay: 0.75s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter10 {
+            from {
+                margin-top: -144px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(11):before {
+            content: "8074935162";
+            margin-top: -192px;
+            animation-name: letter11;
+            animation-duration: 2.5688888889s;
+            animation-delay: 0.64s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter11 {
+            from {
+                margin-top: -192px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(12):before {
+            content: "5189304726";
+            margin-top: -48px;
+            animation-name: letter12;
+            animation-duration: 0.56s;
+            animation-delay: 0.79s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter12 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(13):before {
+            content: "1590348726";
+            margin-top: -192px;
+            animation-name: letter13;
+            animation-duration: 1.3511111111s;
+            animation-delay: 0.62s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter13 {
+            from {
+                margin-top: -192px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(14):before {
+            content: "2784165309";
+            margin-top: -144px;
+            animation-name: letter14;
+            animation-duration: 1.8514285714s;
+            animation-delay: 0.46s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter14 {
+            from {
+                margin-top: -144px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(15):before {
+            content: "3264879051";
+            margin-top: -144px;
+            animation-name: letter15;
+            animation-duration: 0.0342857143s;
+            animation-delay: 0.99s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter15 {
+            from {
+                margin-top: -144px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(16):before {
+            content: "0916378425";
+            margin-top: -120px;
+            animation-name: letter16;
+            animation-duration: 3.1666666667s;
+            animation-delay: 0.05s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter16 {
+            from {
+                margin-top: -120px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(17):before {
+            content: "6849721053";
+            margin-top: -168px;
+            animation-name: letter5;
+            animation-duration: 3.085s;
+            animation-delay: 0.49s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter17 {
+            from {
+                margin-top: -168px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(18):before {
+            content: "8074935162";
+            margin-top: -192px;
+            animation-name: letter11;
+            animation-duration: 2.5688888889s;
+            animation-delay: 0.64s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter18 {
+            from {
+                margin-top: -192px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(19):before {
+            content: "1427963508";
+            margin-top: -48px;
+            animation-name: letter2;
+            animation-duration: 4.0533333333s;
+            animation-delay: 0.13s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter19 {
+            from {
+                margin-top: -48px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        .letter:nth-child(20):before {
+            content: "2784165309";
+            margin-top: -144px;
+            animation-name: letter14;
+            animation-duration: 1.8514285714s;
+            animation-delay: 0.46s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes letter20 {
+            from {
+                margin-top: -144px;
+            }
+
+            to {
+                margin-top: 24px;
+            }
+        }
+
+        /*#endregion */
+
+        /* #region - numbers blue box - settings */
+        .box {
+            content: "";
+            display: block;
+            margin: auto;
+            width: 90px;
+            height: 30px;
+            background-color: #00508d;
+            border: 1px solid #000;
+            border-radius: 3px;
+            font-family: Montserrat, regular;
+            font-size: 12px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*#endregion */
+
+        /* #region - numbers blue box - animation */
+        .box-wrapper {
+            -webkit-transition-duration: 600ms;
+            transition-duration: 600ms;
+        }
+
+        /*
+        .box-wrapper.loading:nth-child(odd) {
+            transform: translate(500%);
+            -webkit-transform: translate(500%);
+        }
+
+        .box-wrapper.loading:nth-child(even) {
+            transform: translate(500%);
+            -webkit-transform: translate(500%);
+        }
+*/
+        /*#endregion*/
+
+        /* #region - right side of slider - settings */
+        .otiut {
+            margin: 0 0;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            overflow: hidden;
+            font-family: sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 40px;
+            color: #eee;
+            text-transform: uppercase;
+        }
+
+        .text-otiut {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: right;
+            align-items: right;
+        }
+
+        /*#endregion*/
+
+        /* #region - right side of slider - animation */
+        .center {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sliderP {
+            direction: rtl;
+            overflow-wrap: break-word;
+            font-family: Segoe UI, Regular;
+            font-size: 24px;
+            color: #fff;
+            display: block;
+            text-align: center;
+        }
+
+        .char {
+            font-family: Segoe UI, Regular;
+            font-size: 24px;
+            color: #fff;
+            height: 40px;
+            animation: an 1s ease-out 1 both;
+            display: inline-block;
+        }
+
+        @keyframes an {
+            from {
+                opacity: 0;
+                transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: perspective(500px) translate3d(0, 0, 0);
+            }
+        }
+
+        /*#endregion*/
+
+        /* #region - left side of slider - setting */
+        .left-side {
+            text-align: right;
+            width: 860px;
+            position: relative;
+            animation: left-content-slide-in 1s;
+            border-right: 1px solid #A1D6FF;
+            padding-right: 70px;
+            margin-top: 20px;
+            margin-right: 120px;
+            height: 340px;
+        }
+
+        .slider-right {
+            padding-right: 380px;
+        }
+
+        #primariy-header div {
+            color: #FFF;
+            display: inline-block;
+            font-size: 42px;
+            vertical-align: top;
+            font-weight: 600;
+        }
+
+        .sh-text {
+            color: #FFF;
+            font-size: 32px !important;
+            display: block;
+            clear: both;
+            font-weight: 100 !important;
+            font-family: Segoe UI, Regular;
+            ;
+        }
+
+        .otiutOLoLihiot {
+            font-size: 24px;
+            font-weight: 100;
+            letter-spacing: 0.48px;
+            color: #fff;
+            font-family: Segoe UI, Regular;
+            font-size: 24px;
+            font-family: Segoe UI, Regular;
+            margin-top: 0px;
+        }
+
+        /*#endregion*/
+
+        /* #region - left side of slider - animation */
+        @keyframes left-content-slide-in {
+            0% {
+                left: -1000px;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        /*#endregion*/
+
+        /* #region - carusel - settings */
+        .document-center {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-container {
+            /* max-width: 980px; */
+            width: 95%;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            padding-top: calc(570 / 980 * 100%);
+            overflow: hidden;
+        }
+
+        .left-arrow {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 147px;
+            cursor: pointer;
+        }
+
+        .left-arrow:hover .chevron,
+        .right-arrow:hover .chevron {
+            border-color: #e6e6e6;
+        }
+
+        .right-arrow {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 147px;
+            cursor: pointer;
+        }
+
+        .chevron {
+            width: 25px;
+            height: 25px;
+            border: solid rgba(255, 255, 255, 0.5);
+            border-width: 10px 10px 0 0;
+        }
+
+        .chevron.right {
+            transform: rotate(45deg);
+        }
+
+        .chevron.left {
+            transform: rotate(-135deg);
+        }
+
+        .circle-container {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            top: 130px;
+            left: -500px;
+            width: 100%;
+            height: 45px;
+        }
+
+        .circle {
+            border: 1px solid white;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .circle-fill {
+            background-color: white;
+        }
+
+        .text-container {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            bottom: 45px;
+            left: 0;
+            width: 100%;
+            color: white;
+            text-shadow: 1px 1px black;
+            text-align: center;
+        }
+
+        .text-container p:nth-child(1) {
+            margin: 10px 100px;
+            font-size: 1.5em;
+        }
+
+        .text-container p:nth-child(2) {
+            margin: 10px 100px 20px 100px;
+        }
+
+        .carousel-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*#endregion*/
+
+        /* #region - carusel - animation */
+        @keyframes toRight {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes toLeft {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        @keyframes comeRight {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes comeLeft {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        /*#endregion*/
+    </style>
+
+    <title>Booktone</title>
+
+</head>
+
+<body>
+    <!--  Top navigation bar -->
+    <nav class="navbar">
+        <div id="login"><img src="../assets/images/login.png" alt="התחבר" /></div>
+
+        <div id="help"><a href="#">עזרה</a></div>
+        <div id="QuestionsAndAnswers"><a href="#">שאלות ותשובות</a></div>
+        <div id="guidance"><a href="#">הדרכה</a></div>
+        <div id="topics"><a href="#">נושאים</a></div>
+
+        <div id="search">
+            <input type="text" name="search" placeholder="חיפוש חברי הקהילה" />
+        </div>
+
+        <div id="logo">
+            צעד אחד קדימה
+        </div>
+
+        <div id="services"><a href="#">השירותים שלנו</a></div>
+        <div id="contact"><a href="#">יצירת קשר</a></div>
+
+        <div id="outer-div">
+            <div class="star">
+
+                <img src="../assets/images/star.16X16.png" alt="grade" />
+                <img src="../assets/images/star.16X16.png" alt="grade" />
+                <img src="../assets/images/star.16X16.png" alt="grade" />
+                <img src="../assets/images/star.16X16.png" alt="grade" />
+                <img src="../assets/images/star.16X16.png" alt="grade" />
+
+            </div>
+            <div>דרג</div>
+        </div>
+    </nav>
+
+    <!--  Top main-content block (black background) -->
+    <main class="main">
+        <!-- links -->
+        <div class="linksWrapper">
+            <div id="linksContainer">
+
+                <a href="#">לוח אירועים</a>
+                <a href="#">שירותים</a>
+                <a href="#">פעילויות</a>
+                <a href="#">יצירות</a>
+            </div>
+        </div>
+        <!-- search -->
+        <div class="searchWrapper">
+            <div class="searchContainer">
+                <div class="search_wrap search_wrap_4">
+                    <div class="search_box">
+
+                        <div id="search-main">
+                            <input type="text" name="search" placeholder="חיפוש" />
+                            <img src="../assets/images/searchbox-magnifier.png" alt="לחצו לחיפוש" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slliding data area -->
+        <div id="scrolWrapper">
+            <div class="scrolContainer">
+                <!-- carusel - start -->
+                <div class="document-center">
+
+                    <div class="carousel-container">
+
+                        <div class="carousel" id="carousel-1" auto-scroll="0">
+
+                            <section class="carousel-screen" id="left-slide">
+                                <!--  -->
+                                <!-- left stage -->
+                                <div class="half-side">
+                                    <div class="sliderContainer left-side">
+                                        <div class="primariy-header" id="primariy-header">
+                                            <div class="ph-text">בוקטון</div>
+                                            <div class="ph-logo"><img src="../assets/images/booktonScrollerIcon.png"
+                                                    style="width:43px;height:44px;padding:6px 0 0 6px" alt=""></div>
+                                            <br />
+                                            <div class="sh-text">קהילת התרבות של ישראל</div><br />
+
+                                            <div class="cell colspan"><img src="../assets/images/Line.png" width="96px"
+                                                    height="5px"></div>
+                                        </div>
+                                        <div class="seperator"></div>
+                                        <div class="row">
+                                            <div class="cell colspan" style="text-align: right;">
+                                                <p class="otiutOLoLihiot">,רשת חברתית חכמה בתחום התרבות, אמנות
+                                                    ואירועים<br> ,עבור: אמנים ויוצרים, אנשי מדיה, חברות
+                                                    תקליטים<br> ,מנהלים, אנשי בוקינג ויח"צ<br> .מנהלי תרבות
+                                                    ומפיקים, אנשי תקשורת ופרסום<br> .נותני שירות וכל צרכני
+                                                    ואוהבי התרבות</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- right stage -->
+                                <div class="half-side margin-right-stage" style="margin-right: 100px;">
+                                    <div class="container">
+                                        <div class="kolav"><img src="../assets/images/liveBtn.png" width="42px"
+                                                height="24px" alt="">
+                                        </div>
+                                        <div class="wrapper">
+                                            <!-- צרכני תרבות -->
+                                            <div class="zooming">צרכני תרבות</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אמנים ויוצרים -->
+                                            <div class="zooming">אמנים ויוצרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- מנהלי תרבות ואירועים -->
+                                            <div class="zooming">מנהלי תרבות ואירועים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">6</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אנשי תקשורת -->
+                                            <div>אנשי תקשורת</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">3</span>
+                                                        <span class="letter">2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- סביבה מקצועית -->
+                                            <div>סביבה מקצועית</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">5</span>
+                                                        <span class="letter">4</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- נותני שירות ומוכרים -->
+                                            <div>נותני שירות ומוכרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">9</span>
+                                                        <span class="letter">8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                            </section>
+
+                            <section class="carousel-screen" id="middle-slide" style="visibility:hidden;">
+                                <!--  -->
+                                <!-- left stage -->
+                                <div class="half-side">
+                                    <div class="sliderContainer left-side">
+                                        <div class="primariy-header" id="primariy-header">
+                                            <div class="ph-text">בוקטון</div>
+                                            <div class="ph-logo"><img src="../assets/images/booktonScrollerIcon.png"
+                                                    style="width:43px;height:44px;padding:6px 0 0 6px" alt=""></div>
+                                            <br />
+                                            <div class="sh-text">קהילת התרבות של ישראל</div><br />
+
+                                            <div class="cell colspan"><img src="../assets/images/Line.png" width="96px"
+                                                    height="5px"></div>
+                                        </div>
+                                        <div class="seperator"></div>
+                                        <div class="row">
+                                            <div class="cell colspan" style="text-align: right;">
+                                                <p class="otiutOLoLihiot">,רשת חברתית חכמה בתחום התרבות, אמנות
+                                                    ואירועים<br> ,עבור: אמנים ויוצרים, אנשי מדיה, חברות
+                                                    תקליטים<br> ,מנהלים, אנשי בוקינג ויח"צ<br> .מנהלי תרבות
+                                                    ומפיקים, אנשי תקשורת ופרסום<br> .נותני שירות וכל צרכני
+                                                    ואוהבי התרבות</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- right stage -->
+                                <div class="half-side margin-right-stage" style="margin-right: 100px;">
+                                    <div class="container">
+                                        <div class="kolav"><img src="../assets/images/liveBtn.png" width="42px"
+                                                height="24px" alt="">
+                                        </div>
+                                        <div class="wrapper">
+                                            <!-- צרכני תרבות -->
+                                            <div class="zooming">צרכני תרבות</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אמנים ויוצרים -->
+                                            <div class="zooming">אמנים ויוצרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- מנהלי תרבות ואירועים -->
+                                            <div class="zooming">מנהלי תרבות ואירועים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">6</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אנשי תקשורת -->
+                                            <div>אנשי תקשורת</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">3</span>
+                                                        <span class="letter">2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- סביבה מקצועית -->
+                                            <div>סביבה מקצועית</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">5</span>
+                                                        <span class="letter">4</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- נותני שירות ומוכרים -->
+                                            <div>נותני שירות ומוכרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">9</span>
+                                                        <span class="letter">8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                            </section>
+
+                            <section class="carousel-screen" id="right-slide">
+                                <!--  -->
+                                <!-- left stage -->
+                                <div class="half-side">
+                                    <div class="sliderContainer left-side">
+                                        <div class="primariy-header" id="primariy-header">
+                                            <div class="ph-text">בוקטון</div>
+                                            <div class="ph-logo"><img src="../assets/images/booktonScrollerIcon.png"
+                                                    style="width:43px;height:44px;padding:6px 0 0 6px" alt=""></div>
+                                            <br />
+                                            <div class="sh-text">קהילת התרבות של ישראל</div><br />
+
+                                            <div class="cell colspan"><img src="../assets/images/Line.png" width="96px"
+                                                    height="5px"></div>
+                                        </div>
+                                        <div class="seperator"></div>
+                                        <div class="row">
+                                            <div class="cell colspan" style="text-align: right;">
+                                                <p class="otiutOLoLihiot">,רשת חברתית חכמה בתחום התרבות, אמנות
+                                                    ואירועים<br> ,עבור: אמנים ויוצרים, אנשי מדיה, חברות
+                                                    תקליטים<br> ,מנהלים, אנשי בוקינג ויח"צ<br> .מנהלי תרבות
+                                                    ומפיקים, אנשי תקשורת ופרסום<br> .נותני שירות וכל צרכני
+                                                    ואוהבי התרבות</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- right stage -->
+                                <div class="half-side margin-right-stage" style="margin-right: 100px;">
+                                    <div class="container">
+                                        <div class="kolav"><img src="../assets/images/liveBtn.png" width="42px"
+                                                height="24px" alt="">
+                                        </div>
+                                        <div class="wrapper">
+                                            <!-- צרכני תרבות -->
+                                            <div class="zooming">צרכני תרבות</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אמנים ויוצרים -->
+                                            <div class="zooming">אמנים ויוצרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">7</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- מנהלי תרבות ואירועים -->
+                                            <div class="zooming">מנהלי תרבות ואירועים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">6</span>
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- אנשי תקשורת -->
+                                            <div>אנשי תקשורת</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">8</span>
+                                                        <span class="letter">3</span>
+                                                        <span class="letter">2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- סביבה מקצועית -->
+                                            <div>סביבה מקצועית</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">1</span>
+                                                        <span class="letter">4</span>
+                                                        <span class="letter">5</span>
+                                                        <span class="letter">4</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wrapper">
+                                            <!-- נותני שירות ומוכרים -->
+                                            <div>נותני שירות ומוכרים</div>
+                                            <div class="box-wrapper loading">
+                                                <div class="box">
+                                                    <div class="letters">
+                                                        <span class="letter">2</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">,</span>
+                                                        <span class="letter">0</span>
+                                                        <span class="letter">9</span>
+                                                        <span class="letter">8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                            </section>
+
+                            <!--These are not screens. They will always be on carousel-->
+                            <section class="circle-container">
+                                <!--These 'circles' need to match the number of carousel screens-->
+                                <div class="circle" title="0"></div>
+                                <div class="circle" title="1"></div>
+                                <div class="circle" title="2"></div>
+                            </section>
+
+                            <div class="left-arrow" style="visibility: hidden;">
+                                <span class="chevron left"></span>
+                            </div>
+
+                            <div class="right-arrow" style="visibility: hidden;">
+                                <span class="chevron right"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- carusel - end -->
+            </div>
+        </div>
+    </main>
+
+    <!--  Central content block (white background) -->
+    <section class="articles">
+        <!--  קהילת התרבות והאמנות של ישראל -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="קהילת התרבות והאמנות של ישראל: ">
+                    קהילת התרבות והאמנות של ישראל:
+                </div>
+                <div title="קהילת התרבות והאמנות של ישראל">
+                    <img src="../assets/images/articles/community.svg" style="width: 62px; height: 41px"
+                        alt="קהילת התרבות והאמנות של ישראל" />
+                </div>
+            </div>
+            <div class="itemText">
+                <div class="displayed" id="displayedContent1">
+                    <img id="hiddenContentArrow1" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    רשת חברתית בתחום התרבות, אמנות ואירועים
+                </div>
+                <div class="hidden" id="hiddenContent1">
+                    עבור אמנים ויוצרים, אנשי מדיה, חברות תקליטים, מנהלים, אנשי בוקינג
+                    ויח"צ, מנהלי תרבות ומפיקים, אנשי תקשורת ופרסום, נותני שירותים וכל
+                    צרכני התרבות
+                </div>
+            </div>
+        </div>
+
+        <!--  טכנולוגיה מתקדמת -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="טכנולוגיה מתקדמת ל:">טכנולוגיה מתקדמת ל:</div>
+                <div title="טכנולוגיה מתקדמת">
+                    <img src="../assets/images/articles/techno.svg" style="width: 48px; height: 57px"
+                        alt="טכנולוגיה מתקדמת" />
+                </div>
+            </div>
+            <!-- ניהול קריירה אמנותית -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent2">
+                    <img id="hiddenContentArrow2" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    ניהול קריירה אמנותית
+                </div>
+                <div class="hidden" id="hiddenContent2">
+                    כעת, ניתן לחסוך בעלויות גיוס אנשי מקצוע לניהול קריירה אומנותית מכל
+                    סוג שהיא. בוקטון מעניקה למשתמשים מידע וכלים לניהול הקריירה באופן
+                    נוח, דיגיטלי ומתקדם.
+                    <br /><br />
+                    סיימת הפקה? יש לך יצירה מוכנה?, כעת שלב ה"פוסט-פרודקשיין", באמצעותנו
+                    תוכל/י לבקש <span class="fakeLink">חוות דעת</span> מחברי קהילה
+                    לסוגיהם לפי בחירתך, ניתן לך
+                    <span class="fakeLink">מידע והנחיות</span> שיעזרו לך לקבל החלטות
+                    מקצועיות וניהוליות למתי ואיך להשיק את היצירה החדשה. ונלווה אותך עד
+                    פעולת ה"שליחה". למידע נוסף ... <br /><br />
+                    ובהתאם לפרופיל האומנותי שלך ובאמצעות יומן האירועים שלנו ניידע אותך
+                    בכל אירועי התרבות הרלוונטיים לתחומך. ומערכת השיווק (בוקינג) שלנו
+                    תביא את הפעילות שלך אל מנהלי תרבות ומפיקים ואל כל מי שרלוונטי לתחום
+                    היצירה והפעילות שלך. למידע נוסף ...
+                </div>
+            </div>
+
+            <!-- (בוקינג) שיווק וקידום פעילויות -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent3">
+                    <img id="hiddenContentArrow3" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    (בוקינג) שיווק וקידום פעילויות
+                </div>
+                <div class="hidden" id="hiddenContent3">
+                    לראשונה בישראל אין צורך בגיוס אנשי מקצוע לשיווק והפצת פעילויות
+                    (בוקינג) – באמצעות המערכת שלנו תוכל/י להפיץ ישירות מהמחשב האישי או
+                    מהנייד שלך את המופע, הצגה, הרצאה, הקרנה של סרט, הפקה חדשה - אל אלפי
+                    לקוחות ואירועים פוטנציאליים הרלוונטיים לתחום הפעילות שלך. לקוחות
+                    מהמגזר הציבורי, הפרטי, העסקי והממשלתי עד קונסוליות ושגרירויות בחו"ל
+                    שעניינם ועיסוקם בתחום התרבות, האומנות והאירועים.
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+
+            <!-- שיווק וקידום שירותי עזר -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent4">
+                    <img id="hiddenContentArrow4" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    שיווק וקידום שירותי עזר
+                </div>
+
+                <div class="hidden" id="hiddenContent4">
+                    אם הינך אומן, יוצר או כל נותן/ת שירותים מקצועיים בתחום התרבות, אמנות
+                    והאירועים, בוקטון עומדת לרשותך כמערכת חכמה לשיווק וקידום השירות אל
+                    קהלים מוגדרים. <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+
+            <!-- הפצת יצירות (פוסט-פרודקשיין) -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent5">
+                    <img id="hiddenContentArrow5" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    הפצת יצירות (פוסט-פרודקשיין)
+                </div>
+
+                <div class="hidden" id="hiddenContent5">
+                    ישנם אתרי הפצת שירים אל תחנות הרדיו ואל אנשי תקשורת ומדיה שמשרתים את
+                    התעשייה בעשור האחרון, גם אנו פיתחנו מערכת להפצת יצירות מכל סוג: שיר,
+                    קליפ, אלבום, ספר, פודקאסט, סרט, צילום, סרטון - כל סוג של יצירה - אל
+                    אנשי התקשורת והמדיה ואל חברי הקהילה הרלוונטיים –
+                    <span class="fakeLink-black">בשינוי אחד ומשמעותי</span> - אין צורך
+                    בסיוע של אנשי מקצוע שיעצבו את עמוד היצירה, יערכו את הערכה לתקשורת,
+                    יפיצו, יעשו פולו-אפ ויעדכנו אותך בתוצאות. עשה/י זאת בעצמך, מהמחשב
+                    האישי או מהנייד. את <span class="fakeLink">ההנחיות</span> תקבל/י
+                    מאיתנו ובאמצעות מערכת ידידותית, שתלווה אותך לאורך כל התהליך עד
+                    השליחה – תוכל/י להיות בטוח/ה כי היצירה שלך עם
+                    <span class="fakeLink">הנתונים שנאספו</span> תגיע לכל מי שזה עניינו
+                    ועיסוקו. עדכונים, סיכומים, תוצאות ומידע רלוונטי לרבות
+                    <span class="fakeLink">פולו-אפ</span> באזור האישי
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+
+            <!-- ניטור ודיווח בזמן אמת של שידורי יצירות-->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent6">
+                    <img id="hiddenContentArrow6" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    ניטור ודיווח בזמן אמת של שידורי יצירות
+                </div>
+
+                <div class="hidden" id="hiddenContent6">
+                    מערכת ניטור בזמן אמת של השמעת יצירות מוזיקליות ברדיו ושידורים בערוצי
+                    הטלוויזיה והמדיה השונים. כחלק מאיסוף הנתונים לכל יצירה, מנטרת המערכת
+                    כיום: 70 תחנות רדיו, 12 ערוצי טלוויזיה, 9 ערוצי מדיה שונים.
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+
+            <!-- דירוג יצירות, פעילויות, שירותים ושת"פ -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent7">
+                    <img id="hiddenContentArrow7" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    דירוג יצירות, פעילויות, שירותים ושת"פ
+                </div>
+
+                <div class="hidden" id="hiddenContent7">
+                    כאמור, בוקטון היא רשת נהדרת לאומנים מכל תחום ואנשי מקצוע מתחום
+                    התרבות והאירועים. בוקטון מאפשרת להעלות ולשתף כל תוכן שהוא עם קולגות
+                    ואנשי מקצוע שונים. לכל יחידת תוכן יש דירוג אובייקטיבי ממוחשב בלתי
+                    ניתן למניפולציה, המתקבל מסיכום של נתוני: האזנות/צפיות, השמעות
+                    ושידורים, אהבו, עוקבים, הוסיפו לפליליסט, ממליצים, חוות דעת וכו' – כל
+                    הנתונים נועדו לעזור לאומן, למנהל, לאיש התקשורת ולמנהל התרבות והמפיק
+                    – להערכת איכות, מקצועיות ופופולאריות ובהתאם לכך לקבל החלטות
+                    <span class="fakeLink">למידע נוסף ...</span> <br /><br />
+                    בנוסף ליצירות / פעילויות / שירותים של המשתמש, המערכת יודעת לסכם את
+                    <span class="fakeLink">שיתופי הפעולה</span> שלו ביצירות, פעילויות.
+                    או שירותים של קולגות ואחרים – והנתונים האלו מתווספים.
+                </div>
+            </div>
+        </div>
+
+        <!--  לוח אירועים -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="לוח אירועים: ">לוח אירועים:</div>
+                <div title="לוח אירועים">
+                    <img src="../assets/images/articles/events.svg" style="width: 47px; height: 53px"
+                        alt="לוח אירועים" />
+                </div>
+            </div>
+            <!--  שיווק וקידום פעילויות בלוח לקהלים מוגדרים -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent8">
+                    <img id="hiddenContentArrow8" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    שיווק וקידום פעילויות בלוח לקהלים מוגדרים
+                </div>
+                <div class="hidden" id="hiddenContent8">
+                    בוקטון מאפשרת לחשוף ולשווק מופעים ופעילויות באמצעות לוח האירועים אל
+                    קהלים מוגדרים לפי אזור, גיל.
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+            <!--  למכירת והזמנת כרטיסים לפעילויות -->
+            <div class="itemText">
+                <div class="displayed" id="displayedContent9">
+                    <img id="hiddenContentArrow9" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    למכירת והזמנת כרטיסים לפעילויות
+                </div>
+                <div class="hidden" id="hiddenContent9">
+                    בוקטון מאפשרת למשתמשים למכור כרטיסים לפעילויות שלהם או לחילופין
+                    להפנות את המשתמשים לאתר ייעודי.
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+        </div>
+
+        <!--  משרד דיגיטלי נוח וידידותי: -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="משרד דיגיטלי נוח וידידותי:">
+                    משרד דיגיטלי נוח וידידותי:
+                </div>
+                <div title="משרד דיגיטלי נוח וידידותי">
+                    <img src="../assets/images/articles/office.svg" style="width: 51px; height: 53px"
+                        alt="משרד דיגיטלי נוח וידידותי" />
+                </div>
+            </div>
+
+            <div class="itemText">
+                <div class="displayed" id="displayedContent10">
+                    <img id="hiddenContentArrow10" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    לאמנים וליוצרים ולסביבתם המקצועית
+                </div>
+                <div class="hidden" id="hiddenContent10">
+                    בוקטון מאפשרת לאומנים ולסביבתם המקצועית לשתף, להפיץ ולבנות
+                    <span class="fakeLink">עמודים ייעודים</span> ליצירות ולפעילויות
+                    המסונכרנות ל<span class="fakeLink">לוח האירועים</span>, כמו כן לעדכן
+                    <span class="fakeLink"> הצעת מחיר</span> אינטרקטיביות לצרכיו של
+                    המבקש, מידע מקצועי לרישום היצירה בספריית
+                    <span class="fakeLink"> Shazam</span> ולהפצת היצירה ב<span class="fakeLink">
+                        חנויות הדיגיטליות</span>. בנוסף המערכת מאפשרת לפרסם
+                    <span class="fakeLink">חנות עצמאית</span> בפרופיל.
+                    <span class="fakeLink">איסוף נתונים, חוות דעת, המלצות ודרוג</span>.
+                    כל אלה ועוד מאפשרים לאומן ולצוותו לקבל החלטות מקצועיות. ומנגד
+                    מסייעים לאנשי תקשורת, שדרנים ועורכים אל מול היצירות המוזיקליות. כמו
+                    כן משפרים משמעותית את היכולת של מנהלי התרבות והמפיקים להבחין ולנתח
+                    את המופע, הצגה, או כל פעילות אומנותית אחרת שלפניהם. <br /><br />
+                    המערכת מאפשרת לצוות המקצועי לנהל ולקבל מידע וניתוח מקצועי בעבור
+                    המיוצגים, יצירותיהם, פעילויותיהם באמצעות כלים, ניתוח נתונים
+                    וסטטיסטיקות. <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+
+            <div class="itemText">
+                <div class="displayed" id="displayedContent11">
+                    <img id="hiddenContentArrow11" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    למנהלי התרבות ולמפיקים
+                </div>
+                <div class="hidden" id="hiddenContent11">
+                    היות וכל מה שחדש ומעניין בעולם האומנות, התרבות והאירועים מתרחש
+                    אצלינו, מדובר במכרה זהב עבור כל מנהל/ת תרבות או מפיק/ה מכל תחום שהוא
+                    - שמומלץ לנצל. <br />
+                    כלי נוח למנהלי תרבות, למפיקים ולכל משתמש - לפרסם
+                    <span class="fakeLink"> "קול קורא"</span> לאומנים ויוצרים, למפיקים,
+                    לאנשי מקצוע ושירותים. לאתר ולקבל מידע מפורט על אמנים ופעילויות
+                    באמצעות <span class="fakeLink">מנוע חיפוש</span> עצמתי וממוקד, למשוך
+                    <span class="fakeLink">הצעת מחיר</span> או לחילופין ל<span class="fakeLink">הזמין פעילות</span>
+                    או <span class="fakeLink">שירות</span> באופן מיידי ובהתאם לכך לקבל
+                    החלטות לפי <span class="fakeLink">נתונים</span> המסייעים בהבחנה
+                    וניתוח.
+                </div>
+            </div>
+
+            <div class="itemText">
+                <div class="displayed" id="displayedContent12">
+                    <img id="hiddenContentArrow12" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    לאנשי תקשורת ומדיה
+                </div>
+                <div class="hidden" id="hiddenContent12">
+                    אנו מכירים בעובדה כי מידי שבוע מגיעים אל שולחנו של איש התקשורת בתחום
+                    התרבות והאירועים עשרות רבות של אייטמים ותכנים לצד למעלה מ 100 שירים,
+                    אלבומים קליפים המחכים בסבלנות להתייחסותו ולאוזנו - וזה לא קל.
+                    <br /><br />
+                    לכן ניתן להיעזר בשירות שלנו שנועד להקל ולעזור לאיש התקשורת לנתח
+                    במהרה את האיכות, הפופולאריות והעניין של הציבור בתוכן – ביחס לאחרים.
+                    וזאת באמצעות
+                    <span class="fakeLink">מידע ונתונים סטטיסטיים</span> שעוזרים בקבלת
+                    החלטות פרקטיותקל. <br /><br />
+                    כך למשל, המוזיקה שתגיע אל שולחנך באמצעותנו, מלבד המדיה והערכה
+                    להורדה, תיחשף/י גם ל<span class="fakeLink">דירוג</span> ו<span class="fakeLink">הנתונים</span>
+                    שלה: האזנות, השמעות המנוטרות בזמן אמת, אהבו, הוסיפו
+                    <span class="fakeLink">לפליליסט</span>,
+                    <span class="fakeLink">חוות דעת</span> שמולאו וכו' – כל המידע הנ"ל
+                    יסייע ויתרום לקבלת החלטה מקצועית.
+                </div>
+            </div>
+        </div>
+
+        <!-- חנות דיגיטלית -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="חנות דיגיטלית:">חנות דיגיטלית:</div>
+                <div title="חנות דיגיטלית">
+                    <img src="../assets/images/articles/store.svg" style="width: 54px; height: 51px"
+                        alt="חנות דיגיטלית" />
+                </div>
+            </div>
+
+            <div class="itemText">
+                <div class="displayed" id="displayedContent13">
+                    <img id="hiddenContentArrow13" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    מותאמת אישית לכל יוצר ולכל יצירה
+                </div>
+                <div class="hidden" id="hiddenContent13">
+                    בוקטון מאפשרת לכל משתמש להקים ולפתוח חנות דיגיטלית ובאמצעותה לשווק
+                    ולמכור: מנויים, יצירות, כרטיסים
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- שירותי מדיה וסטרימינג  -->
+        <div class="itemWrapper" id="itemWrapper">
+            <div class="itemTitle">
+                <div title="שירותי מדיה וסטרימינג">שירותי מדיה וסטרימינג:</div>
+                <div title="חנות דיגיטלית">
+                    <img src="../assets/images/articles/media.svg" style="width: 49px; height: 49px"
+                        alt="חנות דיגיטלית" />
+                </div>
+            </div>
+
+            <div class="itemText">
+                <div class="displayed" id="displayedContent14">
+                    <img id="hiddenContentArrow14" class="itemTextArrow" src="../assets/images/arrow-down.svg" />
+                    שירותי מדיה וסטרימינג
+                </div>
+                <div class="hidden" id="hiddenContent14">
+                    העלאה, שיתוף ושמיעת שירים, הסכתים, צפייה בסרטונים, קריאת ספרים ועוד
+                    <span class="fakeLink">למידע נוסף ...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  Lower content block (black background) -->
+    <section class="contact" id="contactWrapper">
+        <div class="formWrapper">
+            <div class="boxWrapper">
+                <div class="leftBox">
+                    <p class="p">בוקטון נמצאת בשלבים האחרונים של הפיתוח והבנייה</p>
+                    <p class="p">נשמח לשמוע את דעתכם/ן ולקבל הצעות לשיפור והתייעלות</p>
+                    <p class="p">:פנו אלינו או מלאו את הטופס שלפניכם</p>
+                    <br />
+                    <form action="/" method="post">
+                        <input class="form" type="text" name="name" placeholder=" שם " />
+                        <input class="form" type="text" name="mobile" placeholder=" נייד " />
+                        <input class="form" type="text" name="mail" placeholder=" אימייל " />
+                        <input class="form" type="text" name="subject" placeholder=" נושא " />
+                        <textarea class="textarea" rows="4" name="massage" placeholder=" הודעה "></textarea>
+                        <input type="button" class="form form-send" name="send" value="שליחה" id="submit" />
+                    </form>
+                </div>
+            </div>
+            <div class="boxWrapper">
+                <div class="rightBox">
+                    <div id="contact-title">
+                        <img src="../assets/images/contact.png" alt="צור קשר" width="286.32px" height="73.25px" />
+                        <br /><br /><br />
+                    </div>
+                    <div class="clear"><br /></div>
+                    <div class="contact-right-column">
+                        <div>ישראל גלילי 12, תל אביב יפו 6937712</div>
+                        <div>
+                            <img src="../assets/images/footer-location.svg" />
+                        </div>
+                    </div>
+                    <div class="contact-right-column">
+                        <div>
+                            <a href="tel:02-5653568" title="דברו איתנו">02-5653568</a>
+                        </div>
+                        <div>
+                            <img src="../assets/images/footer-phone.svg" />
+                        </div>
+                    </div>
+                    <div class="contact-right-column">
+                        <div>
+                            <a href="mailto:office@booktone.co.il" title="כתבו לנו">office@booktone.co.il</a>
+                        </div>
+                        <div>
+                            <img src="../assets/images/footer-email.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  footer bar block (black background) -->
+    <footer style="
+        background-color: black;
+        display: flex;
+        justify-content: space-around;
+        font-size: 20px;
+        color: white;
+        padding-bottom: 3px; ;
+      ">
+        <div>תקון האתר | הצהרת נגישות</div>
+
+        <div style="display: flex; justify-content: space-between">
+            <div>קהילת התרבות והאומנות של ישראל</div>
+            <div class="HorizentalClear">&nbsp;</div>
+            <div>
+                <img style="height: 20px" src="../assets/images/sochialMedia.png" alt="" />
+            </div>
+        </div>
+
+        <div>סטודיו לעיצוב ואפיון - IIP | Booktone.co.il Ⓒ 2022</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.0/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".itemText").bind("click", function () {
+                currentClickedItem = $(".itemText").index(this) + 1;
+                currentArrow = $("#hiddenContentArrow" + currentClickedItem).attr(
+                    "src"
+                );
+
+                if (currentArrow == "../assets/images/arrow-down.svg") {
+                    $("#hiddenContent" + currentClickedItem).slideDown(400);
+                    $("#hiddenContentArrow" + currentClickedItem).attr(
+                        "src",
+                        "../assets/images/arrow-up.svg"
+                    );
+                } else {
+                    $("#hiddenContent" + currentClickedItem).slideUp(400);
+                    $("#hiddenContentArrow" + currentClickedItem).attr(
+                        "src",
+                        "../assets/images/arrow-down.svg"
+                    );
+                }
+            });
+            var right_margin = 50;
+            var center_margin = 150;
+            $("#left").click(function () {
+                $("#left-header").animate({ marginRight: "0%" }, "slow");
+            });
+        });
+
+        $('.box-wrapper').each(function (index, element) {
+            setTimeout(function () {
+                element.classList.remove('loading');
+            }, index * 500);
+        });
+
+        // carusel
+
+        //Right Arrow & Left Arrow
+        let rightArrow = document.querySelector("#carousel-1 .right-arrow");
+        let leftArrow = document.querySelector("#carousel-1 .left-arrow");
+        //List of all of the screens in carousel
+        let screenStore = document.querySelectorAll("#carousel-1 .carousel-screen");
+        let numOfScreens = screenStore.length;
+        //List of all the circle stores
+        let circleStore = document.querySelectorAll("#carousel-1 .circle-container .circle");
+        //number to target main screen
+        let currentScreen = 0;
+        //currently in animation or not
+        let inAnim = false;
+        //Animation Time
+        let animTime = 500;
+
+        //Sort out starting position
+        sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+        //Sort out circle styling
+        highlightCircle(circleStore[0]);
+
+        //User clicks on rightArrow
+        rightArrow.addEventListener("click", () => {
+            startAnim("right");
+        });
+
+        //User clicks on the leftArrow
+        leftArrow.addEventListener("click", () => {
+            startAnim("left");
+        });
+
+        //Start animation. Either towards left or right
+        function startAnim(direction) {
+            if (!inAnim) {
+                inAnim = true;
+                if (direction === "right") {
+                    moveRight();
+                    highlightCircle(circleStore[currentScreen + 1], "right");
+                } else if (direction === "left") {
+                    moveLeft();
+                    highlightCircle(circleStore[currentScreen - 1], "left");
+                } else {
+                    isAnim = false;
+                    return
+                }
+            }
+        }
+
+        //Move to the right
+        function moveRight() {
+            //Move towards Next screen as usual
+            if (currentScreen < numOfScreens - 1) {
+                toLeft(screenStore[currentScreen]);
+                comeRight(screenStore[currentScreen + 1]);
+                setTimeout(() => {
+                    inAnim = false;
+                    currentScreen++;
+                    sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+                }, animTime)
+            } else {
+                //Or the screen coming in is the first screen again
+                toLeft(screenStore[currentScreen]);
+                comeRight(screenStore[0]);
+                setTimeout(() => {
+                    inAnim = false;
+                    currentScreen = 0;
+                    sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+                }, animTime)
+            }
+        }
+
+        //Move to the left
+        function moveLeft() {
+            //Move back to screen previously on, as usual
+            if (currentScreen > 0) {
+                toRight(screenStore[currentScreen]);
+                comeLeft(screenStore[currentScreen - 1]);
+                setTimeout(() => {
+                    inAnim = false;
+                    currentScreen--;
+                    sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+                }, animTime)
+            } else {
+                //Move back to the last screen container
+                toRight(screenStore[currentScreen]);
+                comeLeft(screenStore[numOfScreens - 1]);
+                setTimeout(() => {
+                    inAnim = false;
+                    currentScreen = numOfScreens - 1;
+                    sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+                }, animTime)
+            }
+        }
+
+        //User clicks on one of the circles
+        circleStore.forEach(circle => {
+            circle.addEventListener("click", event => {
+                if (!inAnim) {
+                    //Convert NodeList to Array, to use 'indexOf' method.
+                    let circleStoreArray = Array.prototype.slice.call(circleStore);
+                    let circleIndex = circleStoreArray.indexOf(event.target);
+                    //Configure circle styling
+                    highlightCircle(event.target);
+                    //Work out whether we need to move right or left, or nowhere.
+                    if (circleIndex > currentScreen) {
+                        changeScreenCircleClick(circleIndex, "right");
+                    } else if (circleIndex < currentScreen) {
+                        changeScreenCircleClick(circleIndex, "left");
+                    }
+                }
+            })
+        })
+
+        function changeScreenCircleClick(circleIndex, direction) {
+            /* הסתרת השקף האמצעי במצב של מעבר ישיר משקף ימני לשקף שמאלי או להפך */
+            if (circleIndex == 0 || circleIndex == 2) {
+                $("#middle-slide").css({ 'visibility': "hidden" });
+            }
+            else {
+                $("#middle-slide").css({ 'visibility': "visible" });
+            }
+
+            restartNumberAnimation();
+            inAnim = true;
+            if (direction === "right") {
+                sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[circleIndex]);
+                toLeft(screenStore[currentScreen]);
+                comeRight(screenStore[circleIndex]);
+            } else if (direction === "left") {
+                sortPositioning(screenStore[currentScreen], screenStore[circleIndex], screenStore[currentScreen + 1]);
+                toRight(screenStore[currentScreen]);
+                comeLeft(screenStore[circleIndex]);
+            } else {
+                inAnim = false;
+                return
+            }
+            setTimeout(() => {
+                inAnim = false;
+                currentScreen = circleIndex;
+                sortPositioning(screenStore[currentScreen], screenStore[currentScreen - 1], screenStore[currentScreen + 1]);
+            }, animTime);
+        }
+
+        function highlightCircle(circleSelect, direction) {
+            if (circleSelect === undefined && direction === "right") {
+                circleSelect = circleStore[0];
+            } else if (circleSelect === undefined && direction === "left") {
+                circleSelect = circleStore[numOfScreens - 1];
+            }
+            circleStore.forEach(circle => {
+                if (circle === circleSelect) {
+                    circle.classList.add("circle-fill");
+                } else {
+                    circle.classList.remove("circle-fill");
+                }
+            })
+        }
+
+
+        //Animation methods
+        function toLeft(screen) {
+            screen.style.animation = "toLeft 0.5s ease-in-out forwards";
+            setTimeout(() => {
+                screen.style.animation = "";
+            }, animTime);
+        }
+
+        function toRight(screen) {
+            screen.style.animation = "toRight 0.5s ease-in-out forwards";
+            setTimeout(() => {
+                screen.style.animation = "";
+            }, animTime);
+        }
+
+        function comeRight(screen) {
+            screen.style.animation = "comeRight 0.5s ease-in-out forwards";
+            setTimeout(() => {
+                screen.style.animation = "";
+            }, animTime);
+        }
+
+        function comeLeft(screen) {
+            screen.style.animation = "comeLeft 0.5s ease-in-out forwards";
+            setTimeout(() => {
+                screen.style.animation = "";
+            }, animTime);
+        }
+
+        function restartNumberAnimation() {
+
+        }
+
+
+        //Sort positioning. Don't want images to overlap
+        function sortPositioning(mainScreen, leftScreen, rightScreen) {
+            //If right screen is undefined. We need to repeat first screen again
+            if (rightScreen === undefined) {
+                rightScreen = screenStore[0];
+            }
+            //If left screen is undefined. We use the last screen
+            if (leftScreen === undefined) {
+                leftScreen = screenStore[numOfScreens - 1];
+            }
+            screenStore.forEach(screen => {
+                if (screen === mainScreen) {
+                    screen.style.display = "block";
+                    screen.style.left = "0px";
+                } else if (screen === leftScreen) {
+                    screen.style.display = "block";
+                    screen.style.left = "-100%";
+                } else if (screen === rightScreen) {
+                    screen.style.display = "block";
+                    screen.style.left = "100%";
+                } else {
+                    screen.style.display = "none";
+                }
+            })
+        }
+
+        //Auto Scroll feature
+        let carousel = document.getElementById("carousel-1");
+        let scrollTime = Number(carousel.getAttribute("auto-scroll"));
+        //Only implement the feature if the user has included the attribute 'auto-scroll'.
+        if (scrollTime) {
+            //Auto Scroll will be set up the very first time
+            let autoWipe = setInterval(() => {
+                startAnim("right");
+            }, scrollTime);
+            //Clear the timer when they hover on carousel
+            carousel.addEventListener("mouseenter", () => {
+                clearInterval(autoWipe);
+            });
+            //Re-initialise the timer when they hover out of the carousel
+            carousel.addEventListener("mouseleave", () => {
+                autoWipe = setInterval(() => {
+                    startAnim("right");
+                }, scrollTime);
+            })
+
+        }
+    </script>
+
+</body>
+
+</html>
